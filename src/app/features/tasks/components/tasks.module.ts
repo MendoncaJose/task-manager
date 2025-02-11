@@ -7,8 +7,15 @@ import { TaskFormComponent } from '../components/task-form/task-form.component';
 import { TaskDetailComponent } from '../components/task-detail/task-detail.component';
 
 @NgModule({
-  declarations: [TaskListComponent, TaskFormComponent, TaskDetailComponent],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule],
+  declarations: [],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
+    TaskListComponent,
+    TaskFormComponent,
+    TaskDetailComponent,
+  ],
   exports: [TaskListComponent, TaskFormComponent, TaskDetailComponent],
 })
 export class TasksModule {}
