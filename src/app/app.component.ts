@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  standalone: true,
-  imports: [RouterOutlet],
+  selector: 'app-root',  // O seletor usado no HTML, como <app-root></app-root>
+  templateUrl: './app.component.html',  // Referência para o template HTML
+  styleUrls: ['./app.component.scss']  // Arquivo CSS ou SCSS (se necessário)
 })
 export class AppComponent {
-  title = 'task-manager';
+  title = 'test-app';  // Variável de exemplo, você pode alterar conforme necessário
 }
