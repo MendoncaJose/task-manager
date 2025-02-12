@@ -9,6 +9,7 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
 import {
   TaskStatusColorDirective,
   TaskStatusPipe,
+  TaskCategoryColorDirective,
 } from '../pipes/task-status.pipe';
 
 @NgModule({
@@ -18,6 +19,7 @@ import {
     TaskDetailComponent,
     TaskStatusPipe,
     TaskStatusColorDirective,
+    TaskCategoryColorDirective,
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import {
     TaskDetailComponent,
     TaskStatusPipe,
     TaskStatusColorDirective,
+    TaskCategoryColorDirective,
   ],
 })
 export class TaskModule {}
