@@ -41,7 +41,7 @@ export class TaskFormComponent implements OnInit {
     if (this.taskForm.valid) {
       const taskData = {
         ...this.taskForm.value,
-        creationDate: new Date(),
+        creationDate: new Date().toISOString().split('T')[0],
       };
 
       if (this.isEditMode) {
