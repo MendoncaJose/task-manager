@@ -28,7 +28,7 @@ export class TaskDetailComponent implements OnInit {
 
   deleteTask(id: number): void {
     if (this.task && confirm('Are you sure you want to delete this task?')) {
-      this.taskService.deleteTask(this.task.id);
+      this.taskService.deleteTask(id);
       this.router.navigate(['/tasks']);
     }
   }
