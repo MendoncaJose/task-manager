@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="task-detail" *ngIf="task">
+      <header>
+        <h1>{{ task.title }}</h1>
+        <div class="actions">
+          <button [routerLink]="['../']">Back</button>
+          <button
+            class="complete-button"
+            [disabled]="task.status === 'completed'"
+            (click)="completeTask(task)"
+          >
+            Complete
+          </button>
+          <button
+            class="edit-button"
+            [routerLink]="['/tasks', task.id, 'edit']"
+          >
+            Edit
+          </button>
+          <button class="delete-button" (click)="deleteTask(task.id)">
+            Delete
+          </button>
+        </div>
+      </header>
+
+      <div class="task-info">
+        <div class="status-badge" [appTaskStatusColor]="task.status">
+          {{ task.status | taskStatus }}
+        </div>
+        <div class="category-badge">
+          {{ task.category }}
+        </div>
+        <div class="date">
+          Created: {{ task.creationDate | date : "medium" }}
+        </div>
+      </div>
+
+      <div class="description">
+        <h3>Description</h3>
+        <p>{{ task.description }}</p>
+      </div>
+    </div>
+  </body>
+</html>
