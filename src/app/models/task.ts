@@ -2,7 +2,7 @@ export interface Task {
   id: number;
   title: string;
   description: string;
-  creationDate: Date;
+  creationDate: string;
   status: 'pending' | 'in-progress' | 'completed';
   category: 'work' | 'personal';
 }
