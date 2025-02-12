@@ -12,8 +12,8 @@ export class TaskService {
       id: 1,
       title: 'Test Task',
       description: 'This is a test task',
-      creationDate: new Date(),
-      status: 'pending',
+      creationDate: new Date().toISOString().split('T')[0],
+      status: 'in-progress',
       category: 'work',
     },
   ]);
