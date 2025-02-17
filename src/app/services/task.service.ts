@@ -7,20 +7,19 @@ import { Task } from '../models/task';
   providedIn: 'root',
 })
 export class TaskService {
-  private tasks = new BehaviorSubject<Task[]>([
-    {
-      id: 1,
-      title: 'Test Task',
-      description: 'This is a test task',
-      creationDate: new Date().toISOString().split('T')[0],
-      status: 'in-progress',
-      category: 'work',
-    },
-  ]);
+  private tasks = new BehaviorSubject<Task[]>([]);
   private statusFilter = new BehaviorSubject<string>('all');
   private categoryFilter = new BehaviorSubject<string>('all');
   private searchQuery = new BehaviorSubject<string>('');
 
+  private readonly STORAGE_KEY = 'tasks';
+
+  constructor() {
+    const savedTasks = localStorage.getItem(this.STORAGE_KEY);
+    if (savedTasks) {
+      this.tasks.next(JSON.parse(savedTasks));
+    }
+  }
   getFilteredTasks(): Observable<Task[]> {
     return combineLatest([
       this.tasks,
@@ -60,6 +59,10 @@ export class TaskService {
     return this.tasks.asObservable();
   }
 
+  private persistTasks(tasks: Task[]): void {
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(tasks));
+  }
+
   addTask(task: Omit<Task, 'id'>): void {
     const currentTasks = this.tasks.getValue();
     const newTask = {
@@ -68,21 +71,27 @@ export class TaskService {
         ? Math.max(...currentTasks.map((t) => t.id)) + 1
         : 1,
     };
-    this.tasks.next([...currentTasks, newTask]);
+    const updatedTasks = [...currentTasks, newTask];
+    this.tasks.next(updatedTasks);
+    this.persistTasks(updatedTasks);
   }
 
   updateTask(task: Task): void {
     const currentTasks = this.tasks.getValue();
     const index = currentTasks.findIndex((t) => t.id === task.id);
     if (index !== -1) {
-      currentTasks[index] = task;
-      this.tasks.next([...currentTasks]);
+      const updatedTasks = [...currentTasks];
+      updatedTasks[index] = task;
+      this.tasks.next(updatedTasks);
+      this.persistTasks(updatedTasks);
     }
   }
 
   deleteTask(id: number): void {
     const currentTasks = this.tasks.getValue();
-    this.tasks.next(currentTasks.filter((task) => task.id !== id));
+    const updatedTasks = currentTasks.filter((task) => task.id !== id);
+    this.tasks.next(updatedTasks);
+    this.persistTasks(updatedTasks);
   }
 
   getTaskById(id: number): Task | undefined {
