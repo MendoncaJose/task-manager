@@ -4,26 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-  <body>
-    <div class="inline-edit">
-      <span
-        *ngIf="!isEditing"
-        class="title-link"
-        (click)="navigateToDetail()"
-        (dblclick)="startEdit()"
-      >
-        {{ value }}
-      </span>
-      <input
-        *ngIf="isEditing"
-        [(ngModel)]="editValue"
-        (keyup.enter)="saveEdit()"
-        (blur)="saveEdit()"
-        #editInput
-      />
-      <button class="icon-button" (click)="toggleEdit()">
-        <span class="icon">{{ isEditing ? "✓" : "✎" }}</span>
-      </button>
-    </div>
-  </body>
+
+  <div class="inline-edit">
+    <span
+      *ngIf="!isEditing"
+      class="title-link"
+      (click)="navigateToDetail()"
+      (dblclick)="startEdit()"
+    >
+      {{ value }}
+    </span>
+    <input
+      *ngIf="isEditing"
+      [(ngModel)]="editValue"
+      (keyup.enter)="saveEdit()"
+      (blur)="saveEdit()"
+      #editInput
+    />
+    <button class="icon-button" (click)="toggleEdit()">
+      <span class="icon">{{ isEditing ? "✓" : "✎" }}</span>
+    </button>
+  </div>
 </html>
