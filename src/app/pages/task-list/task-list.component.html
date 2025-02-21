@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <div>
+    <div class="container">
       <div class="header">
         <h1>Task List</h1>
         <button class="add-button" [routerLink]="['/tasks/new']">
@@ -38,25 +38,34 @@
         </div>
       </div>
 
+      @if ((tasks$ | async)?.length === 0) {
+      <div class="empty-state">
+        <h2>No tasks yet</h2>
+        <p>Create your first task to get started!</p>
+        <button class="add-button" [routerLink]="['/tasks/new']">
+          Create Task
+        </button>
+      </div>
+      } @else {
       <div class="task-list">
-        <div *ngFor="let task of tasks$ | async" class="task-item">
+        @for (task of tasks$ | async; track task.id) {
+        <div class="task-item">
           <div class="task-item-header">
-            <h2 [routerLink]="['/tasks', task.id]" class="task-title">
-              {{ task.title }}
-            </h2>
+            <app-inline-edit
+              [value]="task.title"
+              [taskId]="task.id"
+              (valueChange)="updateTaskTitle(task, $event)"
+            ></app-inline-edit>
             <span class="task-date">{{ task.creationDate }}</span>
           </div>
           <div class="task-item-content">
             <p>{{ task.description }}</p>
             <div class="task-metadata">
-              <div class="status-badge" [appTaskStatusColor]="task.status">
-                Status: {{ task.status | taskStatus }}
-              </div>
-              <span
-                class="category-badge"
-                [appTaskCategoryColor]="task.category"
-              >
-                Category: {{ task.category }}
+              <span class="status-badge" [class]="task.status">
+                {{ task.status }}
+              </span>
+              <span class="category-badge">
+                {{ task.category }}
               </span>
             </div>
           </div>
@@ -79,7 +88,9 @@
             </button>
           </div>
         </div>
+        }
       </div>
+      }
     </div>
   </body>
 </html>
