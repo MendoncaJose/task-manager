@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../models/task';
 import { Observable } from 'rxjs';
-
 import { tap } from 'rxjs/operators';
 
 @Component({
@@ -13,10 +12,14 @@ import { tap } from 'rxjs/operators';
 export class TasksListComponent implements OnInit {
   tasks$: Observable<Task[]>;
 
-  constructor(private taskService: TaskService) {
+  constructor(public taskService: TaskService) {
     this.tasks$ = this.taskService
       .getFilteredTasks()
       .pipe(tap((tasks) => console.log('Tasks:', tasks)));
+  }
+
+  get isEmpty(): boolean {
+    return this.taskService.isEmpty();
   }
 
   completeTask(task: Task): void {
@@ -45,6 +48,13 @@ export class TasksListComponent implements OnInit {
   search(event: Event): void {
     const query = (event.target as HTMLInputElement).value;
     this.taskService.setSearchQuery(query);
+  }
+
+  updateTaskTitle(task: Task, newTitle: string): void {
+    this.taskService.updateTask({
+      ...task,
+      title: newTitle,
+    });
   }
 
   ngOnInit(): void {
