@@ -11,6 +11,8 @@ import {
   TaskStatusPipe,
   TaskCategoryColorDirective,
 } from '../pipes/task-status.pipe';
+import { FormsModule } from '@angular/forms';
+import { InlineEditComponent } from '../components/inline-edit/inline-edit.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import {
     TaskStatusPipe,
     TaskStatusColorDirective,
     TaskCategoryColorDirective,
+    InlineEditComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     TaskListRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [
     TasksListComponent,
@@ -34,6 +38,7 @@ import {
     TaskStatusPipe,
     TaskStatusColorDirective,
     TaskCategoryColorDirective,
+    InlineEditComponent,
   ],
 })
 export class TaskModule {}
