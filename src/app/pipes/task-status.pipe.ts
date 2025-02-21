@@ -30,7 +30,7 @@ export class TaskStatusColorDirective implements OnInit {
 
   ngOnInit() {
     const colors: { [key: string]: string } = {
-      pending: '#ffde21',
+      pending: '#ff9800',
       completed: '#90ee90',
       'in-progress': '#87ceeb',
     };
