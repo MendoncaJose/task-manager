@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <div class="language-selector">
+    <mat-select
+      [(ngModel)]="currentLang"
+      (selectionChange)="changeLanguage($event.value)"
+    >
+      <mat-option value="en">English</mat-option>
+      <mat-option value="es">Español</mat-option>
+    </mat-select>
+  </div>
+</html>
