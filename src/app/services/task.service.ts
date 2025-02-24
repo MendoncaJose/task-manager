@@ -19,11 +19,9 @@ export class TaskService {
   private readonly STORAGE_KEY = 'tasks';
 
   constructor() {
-    const savedTasks = localStorage.getItem(this.STORAGE_KEY);
-    if (savedTasks) {
-      this.tasks.next(JSON.parse(savedTasks));
-    }
+    this.loadTasks();
   }
+
   getFilteredTasks(): Observable<Task[]> {
     return combineLatest([
       this.tasks,
@@ -66,15 +64,16 @@ export class TaskService {
   }
 
   addTask(task: Omit<Task, 'id'>): void {
-    const currentTasks = this.tasksSignal();
+    const currentTasks = this.tasks.getValue();
     const newTask = {
       ...task,
       id: currentTasks.length
         ? Math.max(...currentTasks.map((t) => t.id)) + 1
         : 1,
     };
-    this.tasksSignal.update((tasks) => [...tasks, newTask]);
-    this.persistTasks(this.tasksSignal());
+    const updatedTasks = [...currentTasks, newTask];
+    this.tasks.next(updatedTasks);
+    this.persistTasks(updatedTasks);
   }
 
   private sanitizeInput(input: string): string {
@@ -154,10 +153,9 @@ export class TaskService {
   }
 
   loadTasks() {
-    // Recupera todas as tarefas do localStorage
-    const tasks = localStorage.getItem(this.STORAGE_KEY);
-    if (tasks) {
-      this.tasks.next(JSON.parse(tasks));
+    const savedTasks = localStorage.getItem(this.STORAGE_KEY);
+    if (savedTasks) {
+      this.tasks.next(JSON.parse(savedTasks));
     }
   }
 }
