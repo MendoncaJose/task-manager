@@ -7,9 +7,9 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1>Task List</h1>
+        <h1>{{ "TASKS.TITLE" | translate }}</h1>
         <button class="add-button" [routerLink]="['/tasks/new']">
-          Add New Task
+          {{ "TASKS.ADD_NEW" | translate }}
         </button>
       </div>
 
@@ -17,23 +17,35 @@
         <div class="search-box">
           <input
             type="text"
-            placeholder="Search tasks..."
+            [placeholder]="'TASKS.SEARCH' | translate"
             (input)="search($event)"
           />
         </div>
 
         <div class="filter-group">
           <select (change)="filterByStatus($event)">
-            <option value="all">All Status</option>
-            <option value="pending">Pending</option>
-            <option value="in-progress">In Progress</option>
-            <option value="completed">Completed</option>
+            <option value="all">{{ "TASKS.STATUS.ALL" | translate }}</option>
+            <option value="pending">
+              {{ "TASKS.STATUS.PENDING" | translate }}
+            </option>
+            <option value="in-progress">
+              {{ "TASKS.STATUS.IN_PROGRESS" | translate }}
+            </option>
+            <option value="completed">
+              {{ "TASKS.STATUS.COMPLETED" | translate }}
+            </option>
           </select>
 
           <select (change)="filterByCategory($event)">
-            <option value="all">All Categories</option>
-            <option value="work">Work</option>
-            <option value="personal">Personal</option>
+            <option value="all">
+              {{ "TASKS.CATEGORIES.ALL" | translate }}
+            </option>
+            <option value="work">
+              {{ "TASKS.CATEGORIES.WORK" | translate }}
+            </option>
+            <option value="personal">
+              {{ "TASKS.CATEGORIES.PERSONAL" | translate }}
+            </option>
           </select>
         </div>
       </div>
@@ -75,16 +87,16 @@
               [disabled]="task.status === 'completed'"
               (click)="completeTask(task)"
             >
-              Complete
+              {{ "TASKS.ACTIONS.COMPLETE" | translate }}
             </button>
             <button
               class="edit-button"
               [routerLink]="['/tasks', task.id, 'edit']"
             >
-              Edit
+              {{ "TASKS.ACTIONS.EDIT" | translate }}
             </button>
             <button class="delete-button" (click)="deleteTask(task.id)">
-              Delete
+              {{ "TASKS.ACTIONS.DELETE" | translate }}
             </button>
           </div>
         </div>
