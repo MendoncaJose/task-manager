@@ -40,9 +40,13 @@ git clone https://github.com/your-username/task-manager.git
 Navigate to the directory
 
 cd task-manager
+
 Install dependencies
+
 npm install
+
 Start development server
+
 npm start
 
 The application will be available at `http://localhost:4200`
