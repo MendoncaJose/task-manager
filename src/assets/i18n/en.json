@@ -1,0 +1,28 @@
+{
+  "TASKS": {
+    "TITLE": "Task List",
+    "ADD_NEW": "Add New Task",
+    "SEARCH": "Search tasks...",
+    "NO_TASKS": "No tasks yet",
+    "CREATE_FIRST": "Create your first task to get started!",
+    "STATUS": {
+      "ALL": "All Status",
+      "PENDING": "Pending",
+      "IN_PROGRESS": "In Progress",
+      "COMPLETED": "Completed"
+    },
+    "CATEGORIES": {
+      "ALL": "All Categories",
+      "WORK": "Work",
+      "PERSONAL": "Personal"
+    },
+    "ACTIONS": {
+      "COMPLETE": "Complete",
+      "EDIT": "Edit",
+      "DELETE": "Delete"
+    },
+    "DATE_RANGE": "Select Date Range",
+    "START_DATE": "Start date",
+    "END_DATE": "End date"
+  }
+}
