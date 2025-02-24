@@ -14,6 +14,7 @@ import {
 } from '../pipes/task-status.pipe';
 import { FormsModule } from '@angular/forms';
 import { InlineEditComponent } from '../components/inline-edit/inline-edit.component';
+import { DateRangePickerComponent } from '../components/date-range-picker/date-range-picker.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { InlineEditComponent } from '../components/inline-edit/inline-edit.compo
     ReactiveFormsModule,
     FormsModule,
     TranslateModule.forChild(),
+    DateRangePickerComponent,
   ],
   exports: [
     TasksListComponent,
