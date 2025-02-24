@@ -62,6 +62,7 @@ npm run build
 The project supports multiple languages through @ngx-translate. Currently supported:
 
 - 🇺🇸 English
+- 🇵🇹 Portuguese
 - 🇪🇸 Spanish
 
 To add a new language:

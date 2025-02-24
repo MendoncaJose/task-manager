@@ -1,0 +1,28 @@
+{
+  "TASKS": {
+    "TITLE": "Lista de Tarefas",
+    "ADD_NEW": "Adicionar Nova Tarefa",
+    "SEARCH": "Pesquisar tarefas...",
+    "NO_TASKS": "Sem tarefas",
+    "CREATE_FIRST": "Cria a tua primeira tarefa para começar!",
+    "STATUS": {
+      "ALL": "Todos os Estados",
+      "PENDING": "Pendente",
+      "IN_PROGRESS": "Em Progresso",
+      "COMPLETED": "Concluída"
+    },
+    "CATEGORIES": {
+      "ALL": "Todas as Categorias",
+      "WORK": "Trabalho",
+      "PERSONAL": "Pessoal"
+    },
+    "ACTIONS": {
+      "COMPLETE": "Concluir",
+      "EDIT": "Editar",
+      "DELETE": "Eliminar"
+    },
+    "DATE_RANGE": "Selecionar Intervalo de Datas",
+    "START_DATE": "Data inicial",
+    "END_DATE": "Data final"
+  }
+}
