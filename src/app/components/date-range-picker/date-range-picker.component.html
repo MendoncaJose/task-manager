@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <form [formGroup]="dateRange" class="date-range-container">
+    <mat-form-field>
+      <mat-label>{{ "TASKS.DATE_RANGE" | translate }}</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input
+          matStartDate
+          formControlName="start"
+          placeholder="{{ 'TASKS.START_DATE' | translate }}"
+        />
+        <input
+          matEndDate
+          formControlName="end"
+          placeholder="{{ 'TASKS.END_DATE' | translate }}"
+        />
+      </mat-date-range-input>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </form>
+</html>
