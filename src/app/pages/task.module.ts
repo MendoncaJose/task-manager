@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 import { TasksListComponent } from './task-list/task-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TaskListRoutingModule } from './task-routing.module';
@@ -30,6 +31,7 @@ import { InlineEditComponent } from '../components/inline-edit/inline-edit.compo
     TaskListRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    TranslateModule.forChild(),
   ],
   exports: [
     TasksListComponent,
