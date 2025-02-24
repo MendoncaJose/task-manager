@@ -1,27 +1,90 @@
-# TestApp
+# 📋 Task Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+A modern and efficient task manager built with Angular 18 and Material Design.
 
-## Development server
+## ✨ Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- 🌐 Multi-language support
+- 📱 Responsive design
+- 🎨 Material Design interface
+- 🚀 Lazy loading
+- ⚡ High performance
+- 🔄 State management
+- 🎯 Task prioritization
+- 📅 Due date tracking
 
-## Code scaffolding
+## 🛠️ Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 18
+- Angular Material
+- NgRx (state management)
+- RxJS
+- TypeScript
+- SCSS
 
-## Build
+## 🚀 Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Prerequisites
 
-## Running unit tests
+- Node.js (v18+)
+- npm or yarn
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Installation
 
-## Running end-to-end tests
+bash
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Clone the repository
 
-## Further help
+git clone https://github.com/your-username/task-manager.git
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Navigate to the directory
+
+cd task-manager
+Install dependencies
+npm install
+Start development server
+npm start
+
+The application will be available at `http://localhost:4200`
+
+### Building for Production
+
+bash
+
+npm run build
+
+## 🌐 Internationalization
+
+The project supports multiple languages through @ngx-translate. Currently supported:
+
+- 🇺🇸 English
+- 🇪🇸 Spanish
+
+To add a new language:
+
+1. Add translation file in `src/assets/i18n/`
+2. Register the language in the language selector
+
+## 🔧 Configuration
+
+Environment configuration files are located in `src/environments/`:
+
+- `environment.ts` - Development environment
+- `environment.prod.ts` - Production environment
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Authors
+
+- José Mendonça - [GitHub](https://github.com/MendoncaJose)
+
+## 🙏 Acknowledgments
+
+- Angular Team
+- Material Design Team
+
+---
+
+⭐ If this project helped you, please consider giving it a star!
