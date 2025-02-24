@@ -127,4 +127,37 @@ export class TaskService {
   getTaskById(id: number): Task | undefined {
     return this.tasks.getValue().find((task) => task.id === id);
   }
+
+  getTasksByDateRange(
+    start: Date | null,
+    end: Date | null
+  ): Observable<Task[]> {
+    return this.tasks.asObservable().pipe(
+      map((tasks) => {
+        if (!start && !end) return tasks;
+
+        return tasks.filter((task) => {
+          const taskDate = new Date(task.creationDate);
+
+          if (start && end) {
+            return taskDate >= start && taskDate <= end;
+          } else if (start) {
+            return taskDate >= start;
+          } else if (end) {
+            return taskDate <= end;
+          }
+
+          return true;
+        });
+      })
+    );
+  }
+
+  loadTasks() {
+    // Recupera todas as tarefas do localStorage
+    const tasks = localStorage.getItem(this.STORAGE_KEY);
+    if (tasks) {
+      this.tasks.next(JSON.parse(tasks));
+    }
+  }
 }
