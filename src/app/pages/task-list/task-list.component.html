@@ -49,6 +49,9 @@
           </select>
         </div>
       </div>
+      <app-date-range-picker
+        (dateRangeChanged)="onDateRangeChanged($event)"
+      ></app-date-range-picker>
 
       @if ((tasks$ | async)?.length === 0) {
       <div class="empty-state">
